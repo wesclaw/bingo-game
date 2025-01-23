@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.sidebar{
+  width: 270px;
+  height: 100vh;
+  background-color: rgb(228, 226, 226);
+  position: absolute;
+  overflow-y: auto;
+  border-top-right-radius: 20px;
+  box-shadow: 5px 0px 0px rgb(212, 211, 211);
+  padding: 10px;
+}
+
+.bingo-game{
+  width: 500px;
+  height: 700px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.384);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(3, 1fr); 
+}
+
+.grid-item{
+  border: 1px solid #0a1b2946; 
+}
+
+.active{
+  border: 1px dashed black;
+}
