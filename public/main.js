@@ -1,16 +1,17 @@
 const bingoGame = document.querySelector('.bingo-game')
 const gridSizeBtns = document.querySelectorAll('.grid-size-btn')
 
-const generateGrid = (size) => {
+const generateGrid = (size, fontSize) => {
   bingoGame.style.gridTemplateColumns = `repeat(${size}, 1fr)`
   bingoGame.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
   let gridItems = ''
 
   for(let i = 0; i < size * size; i++){
-    gridItems += `<div class="grid-item"></div>`
+    gridItems += `<textarea class='grid-item' style='font-size: ${fontSize};'></textarea>`
   }
 
+  console.log(fontSize)
   bingoGame.innerHTML = gridItems
 }
 
@@ -24,8 +25,13 @@ gridSizeBtns.forEach((btn)=>{
     gridSizeBtns.forEach((btn)=>btn.classList.remove('active'))
     e.target.classList.add('active')
 
+    const fontSize = 
+    size === 3 ? '5rem' :
+    size === 4 ? '3.5rem' :
+    size === 5 ? '1rem' : '1.5rem'
+
     if(size) {
-      generateGrid(size)
+      generateGrid(size, fontSize)
     }
   })
 })
