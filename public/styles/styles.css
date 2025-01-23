@@ -10,6 +10,8 @@
   height: 100vh;
   justify-content: center;
   overflow-y: auto;
+  flex-direction: column;
+  row-gap: 20px;
 }
 
 .sidebar{
@@ -35,10 +37,25 @@
 .grid-item{
   border: 1px solid #0a1b2946; 
   resize: none; 
-  /* font-size: 2.5rem; */
+  font-size: 3.5rem;
   overflow: hidden;
 }
 
 .active{
   border: 1px dashed black;
+}
+
+.uploadedImages{
+  max-height: 500px;
+  min-height: 100px;
+  overflow-y: auto;
+  border: 2px dashed black;
+  padding: 10px;
+}
+
+.uploadedImage{
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1;
 }
