@@ -37,7 +37,7 @@
 .grid-item{
   border: 1px solid #0a1b2946; 
   resize: none; 
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   overflow: hidden;
 }
 
@@ -51,6 +51,9 @@
   overflow-y: auto;
   border: 2px dashed black;
   padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
 }
 
 .uploadedImage{
