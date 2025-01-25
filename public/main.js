@@ -403,6 +403,12 @@ bingoGame.addEventListener('drop',e=>{
 const numberOfPlayers = document.getElementById('numberOfPlayers')
 const createSheetsBtn = document.getElementById('createSheets')
 
+
+const shuffleDeck = (turnArray) => {  
+  const getLastItemInArray = turnArray.slice(-1)[0]
+  console.log(getLastItemInArray)
+}
+
 createSheetsBtn.addEventListener('click',e=>{
   const numOfPlayers = numberOfPlayers.value;
   const bingoGame = document.querySelector('.bingo-game')
@@ -412,21 +418,15 @@ createSheetsBtn.addEventListener('click',e=>{
     const cloneSheet = getHTML.cloneNode(true)
     const createClones = cloneSheet;
     const container = document.querySelector('.game-wrap')
-
     
     const childNodes = createClones.children
-
     const turnArray = Array.from(childNodes)
 
-
-    turnArray.forEach((item)=>{
-      console.log(item)
-    })
-    // console.log(turnArray)
+    shuffleDeck(turnArray)
 
     ///before we append, we need to randomize each grid item 
     container.append(createClones)
   }
-  
+ 
 })
 
