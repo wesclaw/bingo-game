@@ -385,26 +385,28 @@ inputFile.addEventListener('change',e=>{
     img_el.classList.add('uploadedImage')
     img_el.src = URL.createObjectURL(file)
     uploadedImages.append(img_el)
-
-    // const gridItems = document.querySelectorAll('.grid-item')
-
-    // gridItems.forEach((item)=>{
-    //   item.addEventListener('drop',e=>{
-    //     console.log(e.dataTransfer.files[0])
-    //   })
-    // })
-
-    // img_el.addEventListener('dragend',e=>{
-    //   const getTarget = e.target.src
-    //   const url = URL.createObjectURL(getTarget)
-    //   console.log(url)
-    // })
-  }
+  }  
 })
 
+bingoGame.addEventListener('drop',e=>{
+  e.preventDefault()
+  const file = e.dataTransfer.files[0]
+  const getGridItem = e.target;
+  const url = URL.createObjectURL(file);
+  getGridItem.style.backgroundImage = 
+  `url(${url})`
+  getGridItem.style.backgroundSize = 'contain'
+  getGridItem.style.backgroundRepeat = 'no-repeat'
+  getGridItem.style.backgroundPosition = 'center'
+})
 
+const clearGridBtn = document.getElementById('clearGridBtn').addEventListener('click',e=>{
+  bingoGame.innerHTML = 'select a grid size'
+})
 
+const numberOfPlayers = document.getElementById('numberOfPlayers')
+const createSheetsBtn = document.getElementById('createSheets')
 
-
-
-
+createSheetsBtn.addEventListener('click',e=>{
+  const numOfPlayers = numberOfPlayers.value
+})
