@@ -400,13 +400,33 @@ bingoGame.addEventListener('drop',e=>{
   getGridItem.style.backgroundPosition = 'center'
 })
 
-const clearGridBtn = document.getElementById('clearGridBtn').addEventListener('click',e=>{
-  bingoGame.innerHTML = 'select a grid size'
-})
-
 const numberOfPlayers = document.getElementById('numberOfPlayers')
 const createSheetsBtn = document.getElementById('createSheets')
 
 createSheetsBtn.addEventListener('click',e=>{
-  const numOfPlayers = numberOfPlayers.value
+  const numOfPlayers = numberOfPlayers.value;
+  const bingoGame = document.querySelector('.bingo-game')
+  const getHTML = bingoGame
+  
+  for(let i=0; i<numOfPlayers;i++){
+    const cloneSheet = getHTML.cloneNode(true)
+    const createClones = cloneSheet;
+    const container = document.querySelector('.game-wrap')
+
+    
+    const childNodes = createClones.children
+
+    const turnArray = Array.from(childNodes)
+
+
+    turnArray.forEach((item)=>{
+      console.log(item)
+    })
+    // console.log(turnArray)
+
+    ///before we append, we need to randomize each grid item 
+    container.append(createClones)
+  }
+  
 })
+
