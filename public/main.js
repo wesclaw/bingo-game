@@ -430,25 +430,61 @@ createSheetsBtn.addEventListener('click',e=>{
   }
 })
 
-const printBtn = document.querySelector('#printBtn')
 
-printBtn.addEventListener('click',e=>{
-  const bingoGames = document.querySelectorAll('.bingo-game')
+const { jsPDF } = window.jspdf;
+
+const printBtn = document.querySelector('#printBtn');
+
+printBtn.addEventListener('click', async (e) => {
+  const bingoGames = document.querySelectorAll('.bingo-game');
+  const pdf = new jsPDF({
+    unit: 'in',
+    format: 'a4',
+    orientation: 'portrait',
+  });
+
   const options = {
-    filename: 'my-document.pdf',
-    margin: 1,
+    margin: [0.5, 0.5, 0.5, 0.5], // Top, Left, Bottom, Right margins
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: {
-      scale: 4,
-      background: true, // Ensure background is captured
+      scale: 3,
+      background: true,
+      useCORS: true,
+      allowTaint: true,
     },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
-    allowTaint: true,
-    useCORS: true,
   };
-  bingoGames.forEach((game)=>{
-    html2pdf()
-    .set(options).from(game).save();
 
-  }) 
-})
+  for (let i = 0; i < bingoGames.length; i++) {
+    const game = bingoGames[i];
+
+    // Create a container to ensure proper centering and layout
+    const clone = game.cloneNode(true);
+    const container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.justifyContent = 'center';
+    container.style.alignItems = 'center';
+    container.style.height = '9.5in'; // Letter page height
+    container.style.width = '7.5in'; // Letter page width
+    container.style.position = 'relative';
+    container.style.background = 'white'; // White background for PDF
+    container.appendChild(clone);
+
+    document.body.appendChild(container); // Temporarily add to DOM
+
+    // Convert the DOM content to an image
+    const canvas = await html2canvas(container, options.html2canvas);
+    const imgData = canvas.toDataURL('image/jpeg', options.image.quality);
+
+    if (i > 0) {
+      pdf.addPage(); // Add a new page for each game
+    }
+    pdf.addImage(imgData, 'JPEG', options.margin[1], options.margin[0], 8.5 - options.margin[1] * 2, 11 - options.margin[0] * 2);
+
+    container.remove(); // Clean up
+  }
+
+  pdf.save('all-bingo-games.pdf');
+});
+
+
+
