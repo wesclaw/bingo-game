@@ -403,23 +403,48 @@ bingoGame.addEventListener('drop',e=>{
 const numberOfPlayers = document.getElementById('numberOfPlayers')
 const createSheetsBtn = document.getElementById('createSheets')
 
+const shuffleCards = (turnToArray, createClone) => {
+  const container = document.querySelector('.game-wrap')
+  for (let i = turnToArray.length -1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i+1));
+    let k = turnToArray[i];
+    turnToArray[i] = turnToArray[j];
+    turnToArray[j] = k;
+  }
+  createClone.innerHTML = ''
+  turnToArray.forEach((shuffledItem)=>{
+    createClone.append(shuffledItem)
+  })
+  container.append(createClone)
+
+  /////seee the bingo sheet to prin them
+ 
+}
+
 createSheetsBtn.addEventListener('click',e=>{
   const numOfPlayers = numberOfPlayers.value;
   const bingoGame = document.querySelector('.bingo-game')
   const getHTML = bingoGame
-  
   for(let i=0; i<numOfPlayers;i++){
     const cloneSheet = getHTML.cloneNode(true)
-    const createClones = cloneSheet;
-    const container = document.querySelector('.game-wrap')
-
-    // turn 2 array then loop over each item placing their index with a new random int ?
-    const turnToArray = Array.from(createClones.children)
-
-    console.log(turnToArray[1])
-    
-    ///before we append, we need to randomize each grid item 
-    container.append(createClones)
+    const createClone = cloneSheet;
+    const turnToArray = Array.from(createClone.children)
+    shuffleCards(turnToArray, createClone)
   }
 })
+
+const printBtn = document.querySelector('#printBtn')
+
+printBtn.addEventListener('click',e=>{
+  const bingoGames = document.querySelectorAll('.bingo-game')
+
+  bingoGames.forEach((game)=>{
+    
+  })
+
+})
+
+
+
+
 
