@@ -404,7 +404,7 @@ const numberOfPlayers = document.getElementById('numberOfPlayers')
 const createSheetsBtn = document.getElementById('createSheets')
 
 const shuffleCards = (turnToArray, createClone) => {
-  const container = document.querySelector('.game-wrap')
+  const gameWrap = document.querySelector('.game-wrap')
   for (let i = turnToArray.length -1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i+1));
     let k = turnToArray[i];
@@ -415,10 +415,7 @@ const shuffleCards = (turnToArray, createClone) => {
   turnToArray.forEach((shuffledItem)=>{
     createClone.append(shuffledItem)
   })
-  container.append(createClone)
-
-  /////seee the bingo sheet to prin them
- 
+  gameWrap.append(createClone)
 }
 
 createSheetsBtn.addEventListener('click',e=>{
@@ -437,14 +434,21 @@ const printBtn = document.querySelector('#printBtn')
 
 printBtn.addEventListener('click',e=>{
   const bingoGames = document.querySelectorAll('.bingo-game')
-
+  const options = {
+    filename: 'my-document.pdf',
+    margin: 1,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: {
+      scale: 4,
+      background: true, // Ensure background is captured
+    },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+    allowTaint: true,
+    useCORS: true,
+  };
   bingoGames.forEach((game)=>{
-    
-  })
+    html2pdf()
+    .set(options).from(game).save();
 
+  }) 
 })
-
-
-
-
-

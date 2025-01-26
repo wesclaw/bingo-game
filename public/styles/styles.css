@@ -41,6 +41,10 @@
   resize: none; 
   font-size: 2.5rem;
   overflow: hidden;
+
+  /* background-image: url('../icons/cat.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; */
 }
 
 .active{
@@ -75,3 +79,4 @@
   flex-direction: column;
   row-gap: 20px;
 }
+
