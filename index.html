@@ -7,13 +7,19 @@
     <title>Free Bingo Generator</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script
+      <script
       src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"
       integrity="sha512-MpDFIChbcXl2QgipQrt1VcPHMldRILetapBl5MPCA9Y8r7qvlwx1/Mc9hNTzY+kS5kX6PdoDq41ws1HiVNLdZA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Honk:SHLN@0&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
 
@@ -27,7 +33,7 @@
     <div class="sidebar">
 
       <div class="grid-sizes">
-        <p>Grid Size</p>
+        <p style="text-align: center; margin-bottom: 10px; font-family: 'Audiowide', serif; font-weight: 400; font-style: normal;">Grid Size</p>
         <div class="wrap">
           <button class="grid-size-btn grid-three active">3x3</button>
           <button class="grid-size-btn grid-four">4x4</button>
@@ -91,19 +97,21 @@
 <!-- //////////////////////// -->
 
 <div class="game-wrap">
+
+  <h1 style="
+      margin: 0;
+      font-size: 3rem;
+      font-family: 'Honk', serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: 'MORF' 15, 'SHLN' 50;
+    ">
+      BINGO GENERATOR
+    </h1>
   <div class="bingo-game">
       
-    <!-- <textarea class="grid-item"></textarea>
-    <textarea class="grid-item"></textarea>
-    <textarea class="grid-item"></textarea>
-    
-    <textarea class="grid-item"></textarea>
-    <textarea class="grid-item"></textarea>
-    <textarea class="grid-item"></textarea>
-    
-    <textarea class="grid-item"></textarea>
-    <textarea class="grid-item"></textarea>
-    <textarea class="grid-item"></textarea> -->
+   
 
 
     <div class="grid-item" contenteditable="true"></div>

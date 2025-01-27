@@ -463,16 +463,24 @@ printBtn.addEventListener('click', async (e) => {
     container.style.flexDirection = 'column'
     container.style.justifyContent = 'center';
     container.style.alignItems = 'center';
-    container.style.height = '9.5in'; // Letter page height
-    container.style.width = '7.5in'; // Letter page width
+    container.style.height = '11in'; // was 10
+    container.style.width = '8in'; // Letter page width
     container.style.position = 'relative';
-    container.style.background = 'white';
-    // container.appendChild(clone);
-
+    container.style.background = 'ghostwhite';
 
     container.innerHTML = `
     <div style="text-align: center; padding: 20px;">
-      <h1 style="margin: 0; font-size: 18px;">Bingo Game</h1>
+      <h1 style="
+      margin: 0;
+      font-size: 5rem;
+      font-family: 'Honk', serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: 'MORF' 15, 'SHLN' 50;
+    ">
+      BINGO
+    </h1>
     </div>
     <div style="padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9;">
       ${game.outerHTML}
