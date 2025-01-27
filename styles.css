@@ -44,39 +44,37 @@
 }
 
 .active{
-  border: 4px dashed rgba(0, 0, 0, 0.425);
-
-
-
   padding: 20px 60px;
   border: none;
   outline: none;
   position: relative;
   border-radius: 5px;
-  background: linear-gradient(to right, #00FFA3, #DC1FFF);
+  background: linear-gradient(to left, #FF007F, #00CFFF);
   cursor: pointer;
+  z-index: 1;
 }
 
-/* .active::before {
+.active::before {
   content: "";
   position: absolute;
-  top: 1px;
-  right: 1px;
-  bottom: 1px;
-  left: 1px;
+  left: 3px;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  border-radius: 4px;
   background-color: white;
-} */
+  z-index: -1;
+}
 
 .active::after {
   content: attr(data);
-  font-size: 16px;
 }
 
 .uploadedImages{
   max-height: 500px;
   min-height: 100px;
   overflow-y: auto;
-  border: 2px dashed black;
+  border: 2px dashed rgba(0, 0, 0, 0.568);
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -109,4 +107,28 @@
   padding: 15px;
   font-size: 1.2rem;
   cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Audiowide', serif; 
+  font-weight: 400; 
+  font-style: normal; 
 }
+
+.add-words textarea{
+  width: 100%;
+  min-height: 200px;
+  font-size: 1.3rem;
+  color: black;
+  padding: 5px;
+  font-family: 'Audiowide', serif; 
+  font-weight: 400; 
+  font-style: normal; 
+  margin-top: 20px;
+}
+
+.inputFile {
+  /* display: none; */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
