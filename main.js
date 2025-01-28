@@ -433,8 +433,10 @@ createSheetsBtn.addEventListener('click',e=>{
 const { jsPDF } = window.jspdf;
 
 const printBtn = document.querySelector('#printBtn');
+const buttonPrint = document.querySelector('.button-82-front')
 
 printBtn.addEventListener('click', async (e) => {
+  buttonPrint.textContent = 'Loading...'
   const bingoGames = document.querySelectorAll('.bingo-game');
   const pdf = new jsPDF({
     unit: 'in',
@@ -502,6 +504,8 @@ printBtn.addEventListener('click', async (e) => {
   }
 
   pdf.save('all-bingo-games.pdf');
+
+  buttonPrint.textContent = 'Saved'
 });
 
 
