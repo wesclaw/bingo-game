@@ -43,7 +43,7 @@
       </div>
   
       <div class="add-words">
-        <p style="text-align: center; margin-bottom: 5px; font-family: 'Audiowide', serif; font-weight: 400; font-style: normal; margin-top: 20px;">Add Words</p>
+        <p style="text-align: center; margin-bottom: 5px; font-family: 'Audiowide', serif; font-weight: 400; font-style: normal; margin-top: 10px;">Add Words</p>
         <p style="font-family:'Courier New', Courier, monospace; font-size: 16px; text-align: center; max-width: 80%; margin: auto;">Seperate all items with a comma</p>
         <div class="add-words">
           <textarea name="add-words" placeholder="cow, duck, horse, sheep, farmer" id="addWords"></textarea>
@@ -61,36 +61,57 @@
         <!-- images are appended here -->
       </div>
   
-      <label for="">How many players?</label>
+      <p style="text-align: center; margin-bottom: 10px; font-family: 'Audiowide', serif; font-weight: 400; font-style: normal; margin-top: 10px;">How many players?</p>
       <!-- there is already one sheet so when player wants 2 players there would be 3 created so i made value = 1 less to equal the number of sheets needed by the user -->
-      <select name="" id="numberOfPlayers">
-        <option value="1">2</option>
-        <option value="2">3</option>
-        <option value="3">4</option>
-        <option value="4">5</option>
-        <option value="5">6</option>
-        <option value="6">7</option>
-        <option value="7">8</option>
-        <option value="8">9</option>
-        <option value="9">10</option>
-        <option value="10">11</option>
-        <option value="11">12</option>
-        <option value="12">13</option>
-        <option value="13">14</option>
-        <option value="14">15</option>
-        <option value="15">16</option>
-        <option value="16">17</option>
-        <option value="17">18</option>
-        <option value="18">19</option>
-        <option value="19">20</option>
-      </select>
-  
-     <button id="createSheets">Create bingo sheets</button>
+      <p style="font-family:'Courier New', Courier, monospace; font-size: 16px; text-align: center; max-width: 100%; margin: 10px auto;">Choose the number of players and click 'Create sheets'</p>
+       <div style="display: flex; margin-bottom: 10px; justify-content: center; gap: 10px;">
+        <div>
+          <select name="" id="numberOfPlayers" class="selectPlayers">
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+            <option value="6">7</option>
+            <option value="7">8</option>
+            <option value="8">9</option>
+            <option value="9">10</option>
+            <option value="10">11</option>
+            <option value="11">12</option>
+            <option value="12">13</option>
+            <option value="13">14</option>
+            <option value="14">15</option>
+            <option value="15">16</option>
+            <option value="16">17</option>
+            <option value="17">18</option>
+            <option value="18">19</option>
+            <option value="19">20</option>
+          </select>
+        </div>
+        
+
+        <div>
+          <button id="createSheets" class="createSheets">Create sheets</button>
+          </div>
+        
+       </div>
+      
+    
+
      
 
-     <div>
-      <button id="printBtn">print</button>
+     <div style="margin-top: 20px; display: flex; justify-content: center;">
+      <button class="button-82-pushable" role="button" id="printBtn"
+      >
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span class="button-82-front text">
+          Print
+        </span>
+      </button>
      </div>
+
+     
 
 
 
