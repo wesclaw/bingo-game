@@ -448,7 +448,8 @@ printBtn.addEventListener('click', async (e) => {
     margin: [0.5, 0.5, 0.5, 0.5], // Top, Left, Bottom, Right margins
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: {
-      scale: 3,
+      //scale: 3//
+      scale: 6,
       background: true,
       useCORS: true,
       allowTaint: true,
